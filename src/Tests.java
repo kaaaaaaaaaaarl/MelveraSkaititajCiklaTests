@@ -43,5 +43,56 @@ public class Tests {
                 {false, true, false, false}
 
         };
+
+        boolean[] zaudejumi = new boolean[10];
+
+            //jautajumi tiek jautāti
+        for(int i=0; i<10; i++){
+            System.out.println(jautajumi[i]);
+            for(int k=0; k<4; k++){
+                System.out.println(atbildes[i][k]);}
+            String atbilde = myObj.nextLine();
+            atbilde = atbilde.toUpperCase();
+            switch(atbilde.charAt(0)) {
+                case 'A':
+                    if(atbildes1[i][0]){
+                        System.out.println("A ir pareizā atbilde!");
+                        zaudejumi[i]=true;
+                    }else{
+                        System.out.println("A ir nepareizā atbilde");
+                        zaudejumi[i]=false;
+                    }
+                    break;
+                case 'B':
+                    if(atbildes1[i][1]){
+                        System.out.println("B ir pareizā atbilde!");
+                        zaudejumi[i]=true;
+                    }else{
+                        System.out.println("B ir nepareizā atbilde");
+                        zaudejumi[i]=false;
+                    }
+                    break;
+                case 'C':
+                    if(atbildes1[i][2]){
+                        System.out.println("C ir pareizā atbilde!");
+                        zaudejumi[i]=true;
+                    }else{
+                        System.out.println("C ir nepareizā atbilde");
+                        zaudejumi[i]=false;
+                    }
+                    break;
+                case 'D':
+                    if(atbildes1[i][3]){
+                        System.out.println("D ir pareizā atbilde!");
+                        zaudejumi[i]=true;
+                    }else{
+                        System.out.println("D ir nepareizā atbilde");
+                        zaudejumi[i]=false;
+                    }
+                    break;
+                default:
+                    System.out.println("tikai vaig ierakstīt burtu");
+            }
+        }
     }
 }
