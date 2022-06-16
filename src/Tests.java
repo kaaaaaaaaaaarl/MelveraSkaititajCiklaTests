@@ -1,4 +1,6 @@
+import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Tests {
     public static void main(String[] args) {
@@ -43,19 +45,22 @@ public class Tests {
                 {false, true, false, false}
 
         };
+        int[]  jaut= {0, 1,2,3,4,5,6,7,8,9};
 
         boolean[] zaudejumi = new boolean[10];
 
-            //jautajumi tiek jautāti
+        JauktArray(jaut);
+
         for(int i=0; i<10; i++){
-            System.out.println(jautajumi[i]);
+            System.out.println(jautajumi[jaut[i]]);
+
             for(int k=0; k<4; k++){
-                System.out.println(atbildes[i][k]);}
+                System.out.println(atbildes[jaut[i]][k]);}
             String atbilde = myObj.nextLine();
             atbilde = atbilde.toUpperCase();
             switch(atbilde.charAt(0)) {
                 case 'A':
-                    if(atbildes1[i][0]){
+                    if(atbildes1[jaut[i]][0]){
                         System.out.println("A ir pareizā atbilde!");
                         zaudejumi[i]=true;
                     }else{
@@ -64,7 +69,7 @@ public class Tests {
                     }
                     break;
                 case 'B':
-                    if(atbildes1[i][1]){
+                    if(atbildes1[jaut[i]][1]){
                         System.out.println("B ir pareizā atbilde!");
                         zaudejumi[i]=true;
                     }else{
@@ -73,7 +78,7 @@ public class Tests {
                     }
                     break;
                 case 'C':
-                    if(atbildes1[i][2]){
+                    if(atbildes1[jaut[i]][2]){
                         System.out.println("C ir pareizā atbilde!");
                         zaudejumi[i]=true;
                     }else{
@@ -82,7 +87,7 @@ public class Tests {
                     }
                     break;
                 case 'D':
-                    if(atbildes1[i][3]){
+                    if(atbildes1[jaut[i]][3]){
                         System.out.println("D ir pareizā atbilde!");
                         zaudejumi[i]=true;
                     }else{
@@ -98,12 +103,12 @@ public class Tests {
         int parAtb = 0;
         System.out.println("\nnepareizās atbildes:\n__________________________");
         for(int i=0; i<10; i++){
-            if(!zaudejumi[i]){
-                System.out.println("\n"+jautajumi[i]);
+            if(!zaudejumi[jaut[i]]){
+                System.out.println("\n"+jautajumi[jaut[i]]);
                 System.out.println("\n###pareizā atbilde/s:###");
                 for(int k=0; k<4; k++){
-                    if(atbildes1[i][k]){
-                        System.out.println(atbildes[i][k]);}}
+                    if(atbildes1[jaut[i]][k]){
+                        System.out.println(atbildes[jaut[i]][k]);}}
             }}
 
 
@@ -111,15 +116,26 @@ public class Tests {
         System.out.println("\npareizās atbildes atbildes:\n__________________________");
         for(int i=0; i<10; i++){
 
-            if(zaudejumi[i]){
-                System.out.println(jautajumi[i]);
+            if(zaudejumi[jaut[i]]){
+                System.out.println(jautajumi[jaut[i]]);
                 parAtb++;
                 System.out.println("\n###   pareizā atbilde/s:   ###");
                 for(int k=0; k<4; k++){
-                    if(atbildes1[i][k]){
-                        System.out.println("\n"+atbildes[i][k]);}}
+                    if(atbildes1[jaut[i]][k]){
+                        System.out.println("\n"+atbildes[jaut[i]][k]);}}
             }
         }
         System.out.println("\n kopā pareizās abildes ir: "+parAtb);
+    }
+    static void JauktArray(int[] ar)
+    {
+        Random rnd = ThreadLocalRandom.current();
+        for (int i = ar.length - 1; i > 0; i--)
+        {
+            int index = rnd.nextInt(i + 1);
+            int a = ar[index];
+            ar[index] = ar[i];
+            ar[i] = a;
+        }
     }
 }
