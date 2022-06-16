@@ -24,7 +24,7 @@ public class Tests {
                 {"A) until stop", "C) GoTo", "C)repeat", "D) nav citu"},
                 {"A) viegli paredzami algoritmi", "B) Masīvi", "C) cilvēku izvēles", "D) kodu saīsināšanai"},
                 {"A) ar nosacījumu apstādināt programmu", "B) iet bezgalīgi", "C) būt saīsināta", "D) atkārtoties noteiktu daudzumu reizes"},
-                {"A) zinot masīva garumu", "B) massīvs izdala bool kad ir tuvu beigām", "C) kad masīvs beidzas cikls automatiski apstājas", "Izmantojot IF pārbaudi"},
+                {"A) zinot masīva garumu", "B) massīvs izdala bool kad ir tuvu beigām", "C) kad masīvs beidzas cikls automatiski apstājas", "D) Izmantojot IF pārbaudi"},
                 {"A)Jā ", "B)nē", "C) tikai ja nedefinē garumu", "D) var tikai kopēt datus uz jaunu, lielāku masīvu"},
                 {"A) 255 riezes", "B) 2,147,483,647(int limits) ", "C) 4,294,967,294(int limits x2)", "D) bezgalīgi"},
                 {"A) 2", "B) 3", "C) 5", "D) atšķirās programēšanas valodā"}
@@ -94,5 +94,32 @@ public class Tests {
                     System.out.println("tikai vaig ierakstīt burtu");
             }
         }
+        //parada nepareizās atbildes
+        int parAtb = 0;
+        System.out.println("\nnepareizās atbildes:\n__________________________");
+        for(int i=0; i<10; i++){
+            if(!zaudejumi[i]){
+                System.out.println("\n"+jautajumi[i]);
+                System.out.println("\n###pareizā atbilde/s:###");
+                for(int k=0; k<4; k++){
+                    if(atbildes1[i][k]){
+                        System.out.println(atbildes[i][k]);}}
+            }}
+
+
+        //parada pareizās atbildes
+        System.out.println("\npareizās atbildes atbildes:\n__________________________");
+        for(int i=0; i<10; i++){
+
+            if(zaudejumi[i]){
+                System.out.println(jautajumi[i]);
+                parAtb++;
+                System.out.println("\n###   pareizā atbilde/s:   ###");
+                for(int k=0; k<4; k++){
+                    if(atbildes1[i][k]){
+                        System.out.println("\n"+atbildes[i][k]);}}
+            }
+        }
+        System.out.println("\n kopā pareizās abildes ir: "+parAtb);
     }
 }
